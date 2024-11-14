@@ -1,38 +1,38 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { PlaceholdersAndVanishInput } from '@/components/ui/placeholders-and-vanish-input';
-import { PlusCircle } from 'lucide-react';
-import { Vortex } from '@/components/ui/vortex';
+import { useState, useEffect } from 'react'
+import { TextGenerateEffect } from '@/components/ui/text-generate-effect'
+import { motion, AnimatePresence } from 'framer-motion'
+import { PlaceholdersAndVanishInput } from '@/components/ui/placeholders-and-vanish-input'
+import { Vortex } from '@/components/ui/vortex'
+import Image from 'next/image'
+import EveLogo from '@/app/assets/Eve.png'
 
 export default function TextRevealCardPage() {
-  const [inputText, setInputText] = useState('');
-  const [showCard, setShowCard] = useState(false);
+  const [inputText, setInputText] = useState('')
+  const [showCard, setShowCard] = useState(false)
 
   // Enable dark mode by default
   useEffect(() => {
-    document.documentElement.classList.add('dark');
-  }, []);
+    document.documentElement.classList.add('dark')
+  }, [])
 
   const placeholders = [
     "What's my blood pressure?",
     "When did I go to the doctor for tests?",
     "What is an ECG?"
-  ];
+  ]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputText(e.target.value);
-  };
+    setInputText(e.target.value)
+  }
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+    e.preventDefault()
     if (inputText.trim() !== '') {
-      setShowCard(true);
+      setShowCard(true)
     }
-  };
+  }
 
   return (
     <div className="relative min-h-screen bg-gray-900 text-white transition-colors duration-200 overflow-hidden">
@@ -48,10 +48,16 @@ export default function TextRevealCardPage() {
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <PlusCircle className="h-8 w-8 text-purple-400 transition-colors duration-200" />
-              <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-               Eve
-              </span>
+              <Image
+                src={EveLogo}
+                alt="Eve Logo"
+                width={40}
+                height={40}
+              />
+              {/* <span className="text-xxl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+                Eve
+              </span> */}
+              <h2 className='text-purple-500'>by Adam</h2>
             </div>
           </div>
         </header>
@@ -61,7 +67,7 @@ export default function TextRevealCardPage() {
           <div className="w-full max-w-4xl px-4 py-8 flex flex-col items-center justify-center space-y-12">
             {/* Gradient Heading */}
             <h2 className="text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 animate-gradient-x">
-             Hello! , How can I help?
+              Hello! , How can I help?
             </h2>
 
             {/* Input Component */}
@@ -83,16 +89,14 @@ export default function TextRevealCardPage() {
                   transition={{ duration: 0.5 }}
                   className="w-full"
                 >
-                  
-                      <TextGenerateEffect
-                        words="You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction."
-                        className="text-sm md:text-base lg:text-lg font-light tracking-wide leading-relaxed text-yellow-200"
-                        duration={1.0}
-                      />
-                      <div className="mt-4 text-right text-sm text-gray-400 italic">
-                        - Bhagavad Gita 2.47
-                      </div>
-                    
+                  <TextGenerateEffect
+                    words="You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction."
+                    className="text-sm md:text-base lg:text-lg font-light tracking-wide leading-relaxed text-yellow-200"
+                    duration={1.0}
+                  />
+                  <div className="mt-4 text-right text-sm text-gray-400 italic">
+                    - Bhagavad Gita 2.47
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -109,5 +113,5 @@ export default function TextRevealCardPage() {
         </footer>
       </div>
     </div>
-  );
+  )
 }
