@@ -48,10 +48,11 @@ export default function TextRevealCardPage() {
           <div className="max-w-7xl mx-auto flex justify-between items-center">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <PlusCircle className="h-8 w-8 text-purple-400 transition-colors duration-200" />
+              
               <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
-               Raph
+               Eve
               </span>
+              <h2 className='text-purple-500'>by Adam</h2>
             </div>
           </div>
         </header>
@@ -83,8 +84,7 @@ export default function TextRevealCardPage() {
                   transition={{ duration: 0.5 }}
                   className="w-full"
                 >
-                  <Card className="w-full bg-gray-800 border border-gray-700 shadow-lg transition-colors duration-200">
-                    <CardContent className="p-6">
+                 
                       <TextGenerateEffect
                         words="You have a right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself to be the cause of the results of your activities, nor be attached to inaction."
                         className="text-sm md:text-base lg:text-lg font-light tracking-wide leading-relaxed text-yellow-200"
@@ -93,8 +93,7 @@ export default function TextRevealCardPage() {
                       <div className="mt-4 text-right text-sm text-gray-400 italic">
                         - Bhagavad Gita 2.47
                       </div>
-                    </CardContent>
-                  </Card>
+                  
                 </motion.div>
               )}
             </AnimatePresence>
